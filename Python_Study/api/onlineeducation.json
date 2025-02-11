@@ -1,0 +1,51 @@
+{
+  "category": [
+    {
+      "id": "4e8e",
+      "name": "Programlama",
+      "description": "Yazılım geliştirme ile ilgili kurslar."
+    },
+    {
+      "id": "fea8",
+      "name": "Veritabanı",
+      "description": "Veritabanı yönetimi ve SQL ile ilgili kurslar."
+    }
+  ],
+  "course": [
+    {
+      "id": "d2d4",
+      "title": "Python Programlama",
+      "description": "Python ile temel ve ileri seviye programlama.",
+      "category_id": "4e8e",
+      "price": 199.99,
+      "created_at": "2023-10-01T10:00:00Z"
+    },
+    {
+      "id": "8d02",
+      "title": "MySQL ile Veritabanı Yönetimi",
+      "description": "MySQL ile veritabanı tasarımı ve yönetimi.",
+      "category_id": "fea8",
+      "price": 149.99,
+      "created_at": "2023-10-02T11:30:00Z"
+    }
+  ],
+  "lesson": [
+    {
+      "id": "dbf6",
+      "title": "Python'a Giriş",
+      "content": "Python dilinin temel özellikleri.",
+      "video_url": "https://example.com/python-giris",
+      "course_id": 1
+    },
+    {
+      "id": "30a5",
+      "title": "MySQL Temel Sorgular",
+      "content": "SELECT, INSERT, UPDATE ve DELETE sorguları.",
+      "video_url": "https://example.com/mysql-temel-sorgular",
+      "course_id": 2
+    }
+  ],
+  "student": [],
+  "enrollment": [],
+  "payment": []
+}
