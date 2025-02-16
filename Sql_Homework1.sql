@@ -63,21 +63,23 @@ SELECT cus.customer_id, cus.contact_name,  COUNT(DISTINCT prod.product_id) AS un
 											INNER JOIN Customers AS cus ON ord.customer_id = cus.customer_id
 											INNER JOIN Products AS prod ON prod.product_id = ord_det.product_id
 											GROUP BY cus.customer_id, cus.contact_name
-											ORDER BY total_quantity DESC;  -- En çok ürün alan müşteri en üstte olsun
+											ORDER BY total_quantity DESC  -- En çok ürün alan müşteri en üstte olsun
 
 
 -- LEFT JOIN SORULARI 
 /*Hiç Sipariş Vermeyen Müşteriler - Müşteriler (Customers) ve siparişler (Orders) tablolarını kullanarak, hiç sipariş vermemiş müşterileri listeleyin.*/
 
-SELECT DISTINCT(customer_id) , COUNT(*) FROM Orders 
-										 GROUP BY customer_id  -- 89 tane farklı müşteri sipariş vermiş 
+SELECT DISTINCT(customer_id) , COUNT(*) 
+								FROM Orders 
+								GROUP BY customer_id  -- 89 tane farklı müşteri sipariş vermiş 
 										 
 SELECT COUNT(*) FROM Customers -- 91 tane müşteri var 
 
-SELECT cus.customer_id, cus.contact_name, cus.company_name FROM Customers AS cus 
-															LEFT JOIN Orders AS ord
-															ON ord.customer_id = ord.customer_id
-															WHERE ord.order_id IS NULL; -- 2 Tane aipariş vermeyen müşteri var
+SELECT cus.customer_id, cus.contact_name, cus.company_name
+													FROM Customers AS cus 
+													LEFT JOIN Orders AS ord
+													ON ord.customer_id = ord.customer_id
+													WHERE ord.order_id IS NULL; -- 2 Tane aipariş vermeyen müşteri var
 
 /*Ürün Satmayan Tedarikçiler -  Tedarikçiler (Suppliers) ve ürünler (Products) tablolarını kullanarak, hiç ürün satmamış tedarikçileri listeleyin.*/
 
@@ -86,28 +88,32 @@ SELECT DISTINCT(supplier_id) , COUNT(*) FROM Products
 
 SELECT COUNT(*) FROM Suppliers -- 29 tane tedarikçi var
 
-SELECT sup.supplier_id, sup.contact_name FROM Suppliers AS sup 
-															LEFT JOIN Products AS prod
-															ON sup.supplier_id = prod.supplier_id
-															WHERE prod.product_id IS NULL  -- Hiç ürünü olmayan tedarikçiler
+SELECT sup.supplier_id, sup.contact_name 
+								FROM Suppliers AS sup 
+								LEFT JOIN Products AS prod
+								ON sup.supplier_id = prod.supplier_id
+								WHERE prod.product_id IS NULL  -- Hiç ürünü olmayan tedarikçiler
 
 /*Siparişleri Olmayan Çalışanlar -  Çalışanlar (Employees) ve siparişler (Orders) tablolarını kullanarak, hiç sipariş almamış çalışanları listeleyin.*/
 
-SELECT DISTINCT(employee_id) , COUNT(*) FROM Orders 
-										GROUP BY employee_id  --9 tane farklı  çalışan sipariş almış 
+SELECT DISTINCT(employee_id) , COUNT(*) 
+									FROM Orders 
+									GROUP BY employee_id  --9 tane farklı  çalışan sipariş almış 
 
 SELECT COUNT(*) FROM Employees -- 9 tane çalışan var
 
-SELECT emp.employee_id, emp.first_name FROM Orders AS ord 
-															LEFT JOIN Employees AS emp
-															ON ord.employee_id = emp.employee_id
-															WHERE ord.employee_id IS NULL  -- Hiç sipariş almayan çalışanlar
+SELECT emp.employee_id, emp.first_name 
+								FROM Orders AS ord 
+								LEFT JOIN Employees AS emp
+								ON ord.employee_id = emp.employee_id
+								WHERE ord.employee_id IS NULL  -- Hiç sipariş almayan çalışanlar
 				
-SELECT ord.employee_id, emp.first_name FROM Orders AS ord 
-															LEFT JOIN Employees AS emp
-															ON ord.employee_id = emp.employee_id
-															GROUP BY ord.employee_id ,emp.first_name
-															HAVING ord.employee_id IS NOT NULL  -- Sipariş alan çalışanlar çalışanlar
+SELECT ord.employee_id, emp.first_name 
+								FROM Orders AS ord 
+								LEFT JOIN Employees AS emp
+								ON ord.employee_id = emp.employee_id
+								GROUP BY ord.employee_id ,emp.first_name
+								HAVING ord.employee_id IS NOT NULL  -- Sipariş alan çalışanlar çalışanlar
 
 -- RIGHT JOIN SORULARI 
 
@@ -121,13 +127,12 @@ SELECT * FROM Orders Where customer_id IS NULL -- Customer_id' si boş olan kay�
 
 
  --NULL değerlerin yerini belirli bir değerin almasını sağlamak için SQL COALESCE fonksiyonununu kulanalım
-SELECT ord.order_id,
-       COALESCE(cus.customer_id, 'Bilinmeyen Müşteri') AS customer_id,
-       COALESCE(cus.contact_name, 'Bilinmeyen Müşteri') AS contact_name,
-	   COALESCE(cus.region, 'Bilinmeyen Bölge') AS region -- Örnek de görmek için yaptım bunu 
-	   FROM Customers AS cus
-	   RIGHT JOIN Orders AS ord
-	   ON cus.customer_id = ord.customer_id;
+SELECT ord.order_id,COALESCE(cus.customer_id, 'Bilinmeyen Müşteri') AS customer_id,
+		       				COALESCE(cus.contact_name, 'Bilinmeyen Müşteri') AS contact_name,
+			   				COALESCE(cus.region, 'Bilinmeyen Bölge') AS region -- Örnek de görmek için yaptım bunu 
+			   				FROM Customers AS cus
+			   				RIGHT JOIN Orders AS ord
+			   				ON cus.customer_id = ord.customer_id
 
 
 
