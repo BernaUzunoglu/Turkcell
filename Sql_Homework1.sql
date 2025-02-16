@@ -75,11 +75,11 @@ SELECT DISTINCT(customer_id) , COUNT(*)
 										 
 SELECT COUNT(*) FROM Customers -- 91 tane müşteri var 
 
-SELECT cus.customer_id, cus.contact_name, cus.company_name
+SELECT cus.customer_id, cus.contact_name, cus.company_name, ord.order_id
 													FROM Customers AS cus 
 													LEFT JOIN Orders AS ord
-													ON ord.customer_id = ord.customer_id
-													WHERE ord.order_id IS NULL; -- 2 Tane aipariş vermeyen müşteri var
+													ON cus.customer_id = ord.customer_id
+													WHERE ord.order_id IS NULL -- 2 Tane aipariş vermeyen müşteri var
 
 /*Ürün Satmayan Tedarikçiler -  Tedarikçiler (Suppliers) ve ürünler (Products) tablolarını kullanarak, hiç ürün satmamış tedarikçileri listeleyin.*/
 
