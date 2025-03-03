@@ -3,28 +3,24 @@ import requests
 baseUrl = "http://localhost:3000/student"
 
 
-def getCourse():
+def getStudent():
     response = requests.get(baseUrl)
     return response.json()
 
-def getCourseByCategory(categoryId):
-    response = requests.get(baseUrl+"/?categoryId="+str(categoryId))
+
+def createStudent(student):
+    response = requests.post(baseUrl,json=student)
     return response.json()
 
 
-def createCourse(course):
-    response = requests.post(baseUrl,json=course)
+def updateStudent(id,student):
+    response = requests.put(baseUrl+"/"+str(id),json=student)
     return response.json()
 
-
-def updateCourse(id,course):
-    response = requests.put(baseUrl+"/"+str(id),json=course)
+def updateStudentByPatch(id,student):
+    response = requests.patch(baseUrl+"/"+str(id),json=student)
     return response.json()
 
-def updateCourseByPatch(id,course):
-    response = requests.patch(baseUrl+"/"+str(id),json=course)
-    return response.json()
-
-def deleteCourse(id):
+def deleteStudent(id):
     response = requests.delete(baseUrl+"/"+str(id))
     return response.json()

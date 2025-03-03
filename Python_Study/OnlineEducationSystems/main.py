@@ -1,6 +1,9 @@
 import categoryService
 import courseService
 import lessonService
+import studentService
+import enrollmentService
+import paymentService
 
 
 category1 = {
@@ -73,14 +76,14 @@ student2 = {
     "password": "hashed_password_456"
   }
 
-for lesson in lessonService.getLessons():
-    print(lesson.get("title") + " - "+ lesson.get("content"))
-#lessonService.createLesson(lesson2)
-lessonUpdate ={"title": "Güncellenmiş ders adı"}
-#lessonService.updateLessonByPatch("8ae1",lessonUpdate)
-#lessonService.deleteLesson("8ae1")
+for student in studentService.getStudent():
+    print(student.get("name"))
+#studentService.createStudent(student2)
+studentUpdate ={"name": "Berna Uzunoğlu"}
+#studentService.updateStudentByPatch("105a",studentUpdate)
+#studentService.deleteStudent("6133")
 
-
+print("------------ Enrollment İşlemleri ------------")
 
 enrollment1 = {
     "student_id": 1,
@@ -95,12 +98,15 @@ enrollment2 = {
     "enrolled_at": "2023-10-06T14:20:00Z"
   }
 
-for lesson in lessonService.getLessons():
-    print(lesson.get("title") + " - "+ lesson.get("content"))
-#lessonService.createLesson(lesson2)
+for enrollment in enrollmentService.getEnrollment():
+    print(enrollment)
+enrollmentService.createEnrollment(enrollment2)
 lessonUpdate ={"title": "Güncellenmiş ders adı"}
-#lessonService.updateLessonByPatch("8ae1",lessonUpdate)
-#lessonService.deleteLesson("8ae1")
+#enrollmentService.updateLessonByPatch("8ae1",lessonUpdate)
+#enrollmentService.deleteLesson("8ae1")
+
+
+print("------------ Payment İşlemleri ------------")
 
 payment1 = {
     "student_id": 1,
@@ -119,7 +125,7 @@ payment2 = {
     "paid_at": "2023-10-06T14:45:00Z"
   }
 
-for lesson in lessonService.getLessons():
+for payment in paymentService.getLessons():
     print(lesson.get("title") + " - "+ lesson.get("content"))
 #lessonService.createLesson(lesson2)
 lessonUpdate ={"title": "Güncellenmiş ders adı"}

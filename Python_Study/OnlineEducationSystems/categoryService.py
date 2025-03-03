@@ -6,10 +6,25 @@ def getCategory():
     response = requests.get(baseUrl)
     return response.json()
 
+def getCategoryById(id):
+    response = requests.get(baseUrl+"/?id="+str(id))
+    return response.json()
+
+
+def getCategoryName(name):
+    response = requests.get(baseUrl+"/?name="+str(name))
+    if response.json():
+        return True
+    else:
+        return False
 
 def createCategory(category):
-    response = requests.post(baseUrl,json=category)
-    return response.json()
+    isExists = getCategoryName(category.get("name"))
+    if not isExists:
+        response = requests.post(baseUrl, json=category)
+        return response.json()
+    else:
+        print("Bu category mevcuttur!")
 
 
 def updateCategory(id,category):
@@ -23,4 +38,3 @@ def updateCategoryByPatch(id,category):
 def deleteCategoty(id):
     response = requests.delete(baseUrl+"/"+str(id))
     return response.json()
-

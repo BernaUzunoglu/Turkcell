@@ -45,7 +45,72 @@
       "course_id": 2
     }
   ],
-  "student": [],
-  "enrollment": [],
+  "student": [
+    {
+      "id": "0786",
+      "name": "Ahmet Yılmaz",
+      "email": "ahmet@example.com",
+      "password": "hashed_password_123"
+    },
+    {
+      "id": "417d",
+      "name": "Ayşe Demir",
+      "email": "ayse@example.com",
+      "password": "hashed_password_456"
+    },
+    {
+      "id": "105a",
+      "name": "Berna Uzunoğlu",
+      "email": "ayse@example.com",
+      "password": "hashed_password_456"
+    },
+    {
+      "id": "5db0",
+      "name": "Ayşe Demir",
+      "email": "ayse@example.com",
+      "password": "hashed_password_456"
+    },
+    {
+      "id": "49be",
+      "name": "Ayşe Demir",
+      "email": "ayse@example.com",
+      "password": "hashed_password_456"
+    },
+    {
+      "id": "df0e",
+      "name": "Ayşe Demir",
+      "email": "ayse@example.com",
+      "password": "hashed_password_456"
+    },
+    {
+      "id": "463b",
+      "name": "Ayşe Demir",
+      "email": "ayse@example.com",
+      "password": "hashed_password_456"
+    }
+  ],
+  "enrollment": [
+    {
+      "id": "907f",
+      "student_id": 1,
+      "course_id": 1,
+      "status": "Devam Ediyor",
+      "enrolled_at": "2023-10-05T09:15:00Z"
+    },
+    {
+      "id": "e266",
+      "student_id": 2,
+      "course_id": 2,
+      "status": "Tamamlandı",
+      "enrolled_at": "2023-10-06T14:20:00Z"
+    },
+    {
+      "id": "b441",
+      "student_id": 2,
+      "course_id": 2,
+      "status": "Tamamlandı",
+      "enrolled_at": "2023-10-06T14:20:00Z"
+    }
+  ],
   "payment": []
 }
