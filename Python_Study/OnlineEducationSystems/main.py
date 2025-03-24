@@ -100,9 +100,9 @@ enrollment2 = {
 
 for enrollment in enrollmentService.getEnrollment():
     print(enrollment)
-enrollmentService.createEnrollment(enrollment2)
-lessonUpdate ={"title": "Güncellenmiş ders adı"}
-#enrollmentService.updateLessonByPatch("8ae1",lessonUpdate)
+#enrollmentService.createEnrollment(enrollment2)
+enrollmentUpdate ={"title": "Güncellenmiş ders adı"}
+#enrollmentService.updateLessonByPatch("8ae1",enrollmentUpdate)
 #enrollmentService.deleteLesson("8ae1")
 
 
