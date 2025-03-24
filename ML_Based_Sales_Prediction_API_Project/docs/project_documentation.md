@@ -89,3 +89,33 @@ Amaç, Northwind veritabanındaki sipariş verilerini kullanarak bir makine öğ
 
 ---
 
+📂 ML_Based_Sales_Prediction_API/
+├── .env.example            -> Örnek çevre değişkenleri şablonu
+├── .gitignore              -> Git için ignore dosyası
+├── README.md
+├── requirements.txt
+├── setup.py                -> Python paket kurulumu (opsiyonel)
+├── tests/                  -> Unit ve integration testleri
+│   ├── test_api.py
+│   └── test_models.py
+├── docs/
+│   ├── API_DOCS.md
+│   ├── DATA_DICTIONARY.md  -> Veri yapısı dokümantasyonu
+│   └── ARCHITECTURE.md     -> Sistem mimarisi
+├── notebooks/              -> Jupyter notebook'ları (ARGE çalışmaları)
+│   └── EDA.ipynb
+├── src/
+│   ├── __init__.py
+│   ├── api/
+│   │   ├── endpoints.py
+│   │   └── schemas.py
+│   ├── models/
+│   │   ├── train_model.py
+│   │   └── predict.py
+│   ├── data/
+│   │   ├── database.py
+│   │   └── preprocessing.py
+│   └── config.py           -> Konfigürasyon ayarları
+└── models/                 -> Eğitilmiş model dosyaları (.pkl)
+
+---
