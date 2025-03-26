@@ -94,7 +94,6 @@ Amaç, Northwind veritabanındaki sipariş verilerini kullanarak bir makine öğ
 ├── .gitignore              -> Git için ignore dosyası
 ├── README.md
 ├── requirements.txt
-├── setup.py                -> Python paket kurulumu (opsiyonel)
 ├── tests/                  -> Unit ve integration testleri
 │   ├── test_api.py
 │   └── test_models.py
@@ -102,7 +101,7 @@ Amaç, Northwind veritabanındaki sipariş verilerini kullanarak bir makine öğ
 │   ├── API_DOCS.md
 │   ├── DATA_DICTIONARY.md  -> Veri yapısı dokümantasyonu
 │   └── ARCHITECTURE.md     -> Sistem mimarisi
-├── notebooks/              -> Jupyter notebook'ları (ARGE çalışmaları)
+├── research/              -> Keşifçi Veri Analizi -  ARGE çalışmaları
 │   └── EDA.ipynb
 ├── src/
 │   ├── __init__.py
@@ -117,5 +116,6 @@ Amaç, Northwind veritabanındaki sipariş verilerini kullanarak bir makine öğ
 │   │   └── preprocessing.py
 │   └── config.py           -> Konfigürasyon ayarları
 └── models/                 -> Eğitilmiş model dosyaları (.pkl)
+
 
 ---

@@ -1,0 +1,1 @@
+# Eğitilmiş model dosyaları (.pkl)
