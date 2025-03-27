@@ -12,7 +12,8 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.float_format', lambda x: '%.3f' % x)
 # C:\Users\BERNA\OneDrive\Masaüstü\Turkcell\ML_Based_Sales_Prediction_API_Project\src\data\processed\sales_data.csv
 
-df = pd.read_csv("C:/Users/BERNA/OneDrive/Masaüstü/Turkcell/ML_Based_Sales_Prediction_API_Project/src/data/processed/sales_data.csv")
+df1 = pd.read_csv("C:/Users/BERNA/OneDrive/Masaüstü/Turkcell/ML_Based_Sales_Prediction_API_Project/src/data/processed/sales_data.csv")
+df = pd.read_csv("C:/Users/BERNA/OneDrive/Masaüstü/Turkcell/ML_Based_Sales_Prediction_API_Project/src/data/processed/features.csv")
 # print(df.head(10))
 
 # CSV dosyasını oku
@@ -22,15 +23,19 @@ df = pd.read_csv("C:/Users/BERNA/OneDrive/Masaüstü/Turkcell/ML_Based_Sales_Pre
 features = ["year", "month", "day", "order_unit_price", "quantity", "discount", "product_unit_price"]
 target = "total_sales"
 
+# print(df["total_sales"].median())
+
 # Eksik değerleri kontrol et
 df = df.dropna()
 
 # Kategorik değişkenleri one-hot encoding yap
 df = pd.get_dummies(df, columns=["category_id"], drop_first=True)
 
+X = df.drop(['customer_id', 'OrderTotal'], axis=1)
+y = df['OrderTotal']
 # Özellikler ve hedef değişkeni ayır
-X = df[features]
-y = df[target]
+# X = df[features]
+# y = df[target]
 
 # Veriyi eğitim ve test setlerine ayır
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -58,3 +63,4 @@ rmse = np.sqrt(mse)
 print(f"MAE: {mae:.2f}")
 print(f"MSE: {mse:.2f}")
 print(f"RMSE: {rmse:.2f}")
+print(df["OrderTotal"].median())
