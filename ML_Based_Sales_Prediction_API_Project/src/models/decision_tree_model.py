@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, learning_curve
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
@@ -40,7 +40,7 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 # Modeli oluşturma ve eğitme
-clf = RandomForestClassifier(n_estimators=100, random_state=42)
+clf = RandomForestClassifier(n_estimators=50, max_depth=5, random_state=42)
 clf.fit(X_train, y_train)
 
 # Tahmin yapma
@@ -56,6 +56,32 @@ plt.xlabel("Predicted")
 plt.ylabel("Actual")
 plt.title("Confusion Matrix")
 plt.show()
+
+# 3️⃣ Öğrenme eğrilerini hesapla
+train_sizes, train_scores, test_scores = learning_curve(
+    clf, X, y, cv=5, scoring="neg_mean_squared_error", train_sizes=np.linspace(0.1, 1.0, 10)
+)
+
+# 4️⃣ Ortalamaları al ve hata metriklerine çevir (MSE pozitif olmalı)
+train_errors = -np.mean(train_scores, axis=1)
+test_errors = -np.mean(test_scores, axis=1)
+
+# 5️⃣ Grafik çiz
+plt.figure(figsize=(8, 6))
+plt.plot(train_sizes, train_errors, "o-", label="Eğitim Hatası", color="blue")
+plt.plot(train_sizes, test_errors, "o-", label="Doğrulama Hatası", color="red")
+
+plt.xlabel("Eğitim Veri Sayısı")
+plt.ylabel("Hata (MSE)")
+plt.title("Öğrenme Eğrisi (Learning Curve)")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+
+
+
+
 
 from sklearn.tree import DecisionTreeClassifier
 model = DecisionTreeClassifier(random_state=42)
