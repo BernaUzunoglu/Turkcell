@@ -3,6 +3,13 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\ML_Based_Sales_Prediction_API_Project\src\data\processed\category_revenue.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\ML_Based_Sales_Prediction_API_Project\src\data\processed\features.csv">
           <value>
             <Attribute>
@@ -18,6 +25,20 @@
           </value>
         </entry>
         <entry key="\ML_Based_Sales_Prediction_API_Project\src\data\processed\sales_data1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\ML_Based_Sales_Prediction_API_Project\src\data\processed\sales_forecasting_data.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\ML_Based_Sales_Prediction_API_Project\src\models\model_results\ml_sales_forecast_results.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
