@@ -1,12 +1,6 @@
 import random
-
 import pandas as pd
-import numpy as np
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-from sklearn import tree
-import random
 import joblib
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -60,4 +54,3 @@ def predict_approval(applicant: Applicant):
 # Ödev 1 - ARGE : Decisiontrees'de gini yerine alternatif ne kullanılabilir? Farkı nedir ?
 # Ödev 2 - ARGE : Pydantic ile başka neler yapılabilir.
 # Ödev 3 - ARGE : Faker kütüphanesi ne işe yarar? Detaylı araştırınız.
-

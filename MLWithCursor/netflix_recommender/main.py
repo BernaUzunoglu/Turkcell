@@ -2,9 +2,9 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from netflix_recommender import models
-from netflix_recommender.database import engine, get_db
-from netflix_recommender.recommender import FilmOneriSistemi
+import models
+from database import engine, get_db
+from recommender import FilmOneriSistemi
 from pydantic import BaseModel
 from datetime import datetime
 import os

@@ -3,33 +3,33 @@ import matplotlib.pyplot as plt
 from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, classification_report
+# from sklearn.metrics import accuracy_score, classification_report
 
 np.random.seed(42)
 
 n_samples = 300
-incomes = np.random.uniform(2,12,n_samples)
-debpts = np.random.uniform(10,90,n_samples)
+incomes = np.random.uniform(2, 12, n_samples)
+debpts = np.random.uniform(10, 90, n_samples)
 
 labels = []
 
-for income,debpt in zip(incomes,debpts):
+for income, debpt in zip(incomes, debpts):
     if income < 6 and debpt > 70:
-        labels.append(1) # Riskli
+        labels.append(1)  # Riskli
     else:
-        labels.append(0) # Güvenli
+        labels.append(0)  # Güvenli
 
-X = np.column_stack((incomes,debpts))
+X = np.column_stack((incomes, debpts))
 y = np.array(labels)
 
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 
-X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42) #verilerimizin %20 sini test verisi ½80 sini eğitim verisi olarak seçer.
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)  #verilerimizin %20 sini test verisi ½80 sini eğitim verisi olarak seçer.
 
 model = SVC(kernel="linear")
-model.fit(X_train,y_train)
+model.fit(X_train, y_train)
 
 accuracy = model.score(X_test, y_test)
 print("Accuracy : ", accuracy)

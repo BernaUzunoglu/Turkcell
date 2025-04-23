@@ -2,7 +2,7 @@
 import numpy as np
 from sklearn.cluster import KMeans
 from sqlalchemy.orm import Session
-from netflix_recommender.models import Film, Kullanici, Puan, Izleme, Kategori
+from models import Film, Kullanici, Puan, Izleme, Kategori
 import pandas as pd
 
 class FilmOneriSistemi:
