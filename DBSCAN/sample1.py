@@ -1,8 +1,8 @@
-# Müşterilerin alışveriş davranışlarına göre gruplanması ve aykırı verilerin keşfi 
+# Müşterilerin alışveriş davranışlarına göre gruplanması ve aykırı verilerin keşfi
 
 # order_details
 
-import pandas as pd 
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import psycopg2
@@ -11,14 +11,9 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import DBSCAN
 from sklearn.neighbors import NearestNeighbors
 from kneed import KneeLocator
+from config import Config
 
-user = "postgres"
-password = "12345"
-host = "localhost"
-port = "5432"
-database = "GYK1_Northwind"
-
-engine = create_engine(f"postgresql://{user}:{password}@{host}:{port}/{database}")
+engine = create_engine(Config.DATABASE_URL)
 
 query = """
 SELECT
@@ -31,9 +26,8 @@ INNER JOIN orders o ON c.customer_id = o.customer_id
 INNER JOIN order_details od ON o.order_id = od.order_id
 GROUP BY c.customer_id
 HAVING COUNT(o.order_id) > 0;
-
-
 """
+
 df = pd.read_sql_query(query, engine)
 print(df.head())
 
